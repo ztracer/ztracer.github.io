@@ -13,7 +13,7 @@ future: true
 
 # SNS settings
 RSS: false
-weibo_username: huxpro
+weibo_username: ztracer
 zhihu_username: huxpro
 github_username: huxpro
 twitter_username: huxpro
@@ -89,4 +89,11 @@ service-worker: true
 page-mathjax: false
 
 # Favourite
-favourites: [{ title: "EveOneCat", href: "http://www.motions.cat/" }]
+favourites: 
+
+[
+  { title: "EveOneCat", href: "http://www.motions.cat/" },
+
+]
+
+
