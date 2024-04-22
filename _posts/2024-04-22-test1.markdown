@@ -4,7 +4,6 @@ subtitle: "第一次的尝试post"
 layout: post
 author: "tracer"
 header-style: text
-hidden: true
 tags:
     - Git
     - test
