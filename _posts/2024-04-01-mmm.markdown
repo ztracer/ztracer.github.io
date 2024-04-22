@@ -1,0 +1,169 @@
+---
+title: "GitHub学习资料"
+subtitle: "各种各样的"
+layout: post
+author: "tracer"
+header-style: text
+tags:
+    - Git
+    - OSS
+    - Web
+    - Wiki
+---
+
+# GitHub学习资料
+
+## GIT基础指令学习
+- 设置全局用户名
+   git config --global user.email "ztracer1@gmail.com"
+   git config --global user.name "ztracer"
+- 代理服务器设置
+    - 设置http代理 git config --global http.proxy http://127.0.0.1:port
+       移除这些设置 git config --global --unset http.proxy
+- config查看
+    - git config --list
+- 上传相关命令的步骤
+    - 0. 如果是首次提交
+        - 初始化
+           git init
+        - 添加到缓存区
+           git add .【里面全部】
+           git commit -m "Initial commit of XXX"
+        - 关联远程仓库git remote add origin https://github.com/github_name/github_name.github.io
+        - 推送到master
+           git push -u origin master
+    - 1. 检查更改 
+        - 1. 检查更改
+           打开命令行工具（如 PowerShell, Terminal 等），并切换到你的项目目录。首先，查看你所做的更改：
+           ```bash
+           cd D:\obsidian\Mind_Map\OSS # 切换到你的项目目录
+           git status
+           ```
+           `git status` 命令会显示所有已修改（但未暂存）、已暂存（但未提交）的文件，以及任何新文件或被删除的文件。
+        - 定期运行 git status 来检查仓库状态，帮助管理更改和避免冲突
+    - 2. 暂存更改 ^7721a546-ed29-e4ba
+        - 2. 暂存更改
+           如果你想提交所有更改，可以使用：
+           ```bash
+           git add .
+           ```
+           如果只想提交特定文件的更改，可以单独添加这些文件：
+           ```bash
+           git add 文件的相对路径
+           ```
+    - 3. 提交更改 ^2069ed9f-6891-e60e
+        - 3. 提交更改
+           提交你的更改，每次提交都应该附带一个描述性的消息，说明本次提交做了哪些更改：
+           ```bash
+           git commit -m "这里填备注"
+           ```
+    - 4. 推送
+        - 4. 推送更改到远程仓库
+           将你的本地更改推送到远程仓库：
+           ```bash
+           git push
+           ```
+           如果是你第一次推送或你之前设置了不同的上游分支，你可能需要指定远程仓库名和分支名：
+           ```bash
+           git push -u origin master # 或使用 main，取决于你的主分支名称
+           ```
+- Git查询命令
+    - git_log的一些参数
+
+## GIT主页装饰教学
+- spotify装饰
+    - 授权网站
+       https://spotify-recently-played-readme.vercel.app/
+        ![Alt text](https://spotify-recently-played-readme.vercel.app/api?user=31ruraug2cuif4m5trw7fe5x2im4&count=1&width=500)
+    - 参数详解
+        - &unique=1
+            - 是否唯一
+        - &count=1
+            - 显示数量
+        - &width=500
+            - 宽度
+    - 居中 ^7def9e2e-0310-4930
+
+        -
+          ```
+          <p align="center">
+            <img src="https://spotify-recently-played-readme.vercel.app/api?user=31ruraug2cuif4m5trw7fe5x2im4&count=1&width=700" alt="My Spotify">
+          </p>
+          ```
+
+- 别人的模板
+
+- 一键ReadMe文字生成器 ^f4ed1ed2-2059-42f4
+    - https://rahuldkjain.github.io/gh-profile-readme-generator/
+    - git:
+       https://github.com/rahuldkjain/github-profile-readme-generator
+- 浏览计数器
+    - 国家地区访问统计【可以有地图的】 
+        - https://flagcounter.com/index.html
+        - 展示4个+展示名称+展示总人数
+           <a href="http://s01.flagcounter.com/more/Rd"><img src="https://s01.flagcounter.com/count2/Rd/bg_FFFFFF/txt_000000/border_CCCCCC/columns_2/maxflags_6/viewers_0/labels_1/pageviews_1/flags_0/percent_0/" alt="Flag Counter" border="0"></a>
+        - 展示地图+总人数
+           <a href="https://info.flagcounter.com/cZwD"><img src="https://s01.flagcounter.com/map/cZwD/size_l/txt_000000/border_CCCCCC/pageviews_1/viewers_0/flags_0/" alt="Flag Counter" border="0"></a>
+    - 简易不用授权的
+        - https://badges.toozhao.com/
+        - 每当这个图片被加载时，徽章服务器就会记录一个访问事件
+        - 各种颜色 ^268f3b95-b905-11b5
+            - [![Page Views Count](https://badges.toozhao.com/badges/01HVGJA34B7K22N870GPCZ9JRS/green.svg)](https://badges.toozhao.com/stats/01HVGJA34B7K22N870GPCZ9JRS "Get your own page views count badge on badges.toozhao.com")
+            - [![Page Views Count](https://badges.toozhao.com/badges/01HVGHT7MRTM1XT68SBHSPAHB0/blue.svg)](https://badges.toozhao.com/stats/01HVGHT7MRTM1XT68SBHSPAHB0 "Get your own page views count badge on badges.toozhao.com")
+            - [![Page Views Count](https://badges.toozhao.com/badges/01HVGHT7MRTM1XT68SBHSPAHB0/orange.svg)](https://badges.toozhao.com/stats/01HVGHT7MRTM1XT68SBHSPAHB0 "Get your own page views count badge on badges.toozhao.com")
+        - HTML ^31eda175-3dda-d991
+            - <img src="https://badges.toozhao.com/badges/01HVGHT7MRTM1XT68SBHSPAHB0/orange.svg" />
+    - 自制计数器
+        - 效果
+        - 难题
+            - XSS是啥？详细解答在——
+            - https://stackoverflow.com/questions/50588574/embed-github-rendered-md-page-as-iframe
+        - 教学
+            - https://dev.to/ryanlanciaux/quick-github-profile-visit-counter-14en
+            - 一句话
+               https://dev.to/ryanlanciaux/visitor-count-on-your-github-profile-with-one-line-of-markdown-593g
+            - 有人提到的小人
+               https://blog.csdn.net/ZedTorpex/article/details/109064734
+            - 托管平台
+               https://glitch.com/
+            - 避免机制
+               https://rushter.com/blog/github-profile-markdown/
+- 链接 
+    - 还不错的教程
+       https://cloud.tencent.com/developer/article/1866501
+    - <iframe src="https://pleasant-plastic-curiosity.glitch.me/counter" frameborder="0" allowfullscreen></iframe>
+    - ![Visitor Count](https://profile-counter.glitch.me/ztracer/count.svg)
+
+- contribution生成器
+    - https://github-readme-streak-stats.herokuapp.com/demo/
+
+## GitHub.io个人主页教程
+- 教程
+    - https://zhuanlan.zhihu.com/p/641525444
+    - https://www.github-zh.com/getting-started/github-pages
+    - up主爬爬虾的教程【易上手，很方便，除了fork的目标不太好，可以fork更好的备份】
+       https://www.bilibili.com/video/BV12H4y1N7Q4
+
+## GitHub Action学习
+- \# DevOps工具
+    - \# 持续集成和持续交付 (CI/CD) 平台
+- 链接
+   https://www.bilibili.com/video/BV1aT421y7Ar
+- 什么时候 + 干什么事情
+    - git push的时候
+    - 多个工作
+        - 多个步骤
+- 手搓工作流
+
+## 开源软件安全相关问题
+- virustotal
+    - https://www.virustotal.com/gui/home/upload
+- 云沙箱
+    - https://s.threatbook.com/
+
+## 学习资料链接 
+- 可视化学习
+    - https://onlywei.github.io/explain-git-with-d3/
+    - https://learngitbranching.js.org/?locale=zh_CN
+- 好看的主页
+    - https://github.com/kautukkundan/Awesome-Profile-README-templates
