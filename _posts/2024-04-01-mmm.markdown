@@ -13,7 +13,7 @@ tags:
 
 ## GIT基础指令学习
 - 设置全局用户名
-   git config --global user.email "ztracer1@gmail.com"
+   git config --global user.email "ztracer@gmail.com"
    git config --global user.name "ztracer"
 - 代理服务器设置
     - 设置http代理 git config --global http.proxy http://127.0.0.1:port
@@ -80,18 +80,14 @@ tags:
             - 显示数量
         - &width=500
             - 宽度
-    - 居中 ^7def9e2e-0310-4930
-
+    - 居中
         -
           ```
           <p align="center">
             <img src="https://spotify-recently-played-readme.vercel.app/api?user=31ruraug2cuif4m5trw7fe5x2im4&count=1&width=700" alt="My Spotify">
           </p>
           ```
-
-- 别人的模板
-
-- 一键ReadMe文字生成器 ^f4ed1ed2-2059-42f4
+- 一键ReadMe文字生成器
     - https://rahuldkjain.github.io/gh-profile-readme-generator/
     - git:
        https://github.com/rahuldkjain/github-profile-readme-generator
@@ -102,7 +98,7 @@ tags:
            <a href="http://s01.flagcounter.com/more/Rd"><img src="https://s01.flagcounter.com/count2/Rd/bg_FFFFFF/txt_000000/border_CCCCCC/columns_2/maxflags_6/viewers_0/labels_1/pageviews_1/flags_0/percent_0/" alt="Flag Counter" border="0"></a>
         - 展示地图+总人数
            <a href="https://info.flagcounter.com/cZwD"><img src="https://s01.flagcounter.com/map/cZwD/size_l/txt_000000/border_CCCCCC/pageviews_1/viewers_0/flags_0/" alt="Flag Counter" border="0"></a>
-    - 简易不用授权的
+    - 简易不用授权的一些小插件
         - https://badges.toozhao.com/
         - 每当这个图片被加载时，徽章服务器就会记录一个访问事件
         - 各种颜色
@@ -118,11 +114,11 @@ tags:
         - 难题
             - XSS是啥？详细解答在——https://stackoverflow.com/questions/50588574/embed-github-rendered-md-page-as-iframe
         - 教学
-            - https://dev.to/ryanlanciaux/quick-github-profile-visit-counter-14en
-            - 一句话https://dev.to/ryanlanciaux/visitor-count-on-your-github-profile-with-one-line-of-markdown-593g
-            - 有人提到的小人https://blog.csdn.net/ZedTorpex/article/details/109064734
-            - 托管平台https://glitch.com/
-            - 避免机制https://rushter.com/blog/github-profile-markdown/
+            - Quick GitHub profile visit counter：https://dev.to/ryanlanciaux/quick-github-profile-visit-counter-14en
+            - 一句话调用：https://dev.to/ryanlanciaux/visitor-count-on-your-github-profile-with-one-line-of-markdown-593g
+            - 有人提到的小人：https://blog.csdn.net/ZedTorpex/article/details/109064734
+            - 托管平台：https://glitch.com/
+            - 避免机制：https://rushter.com/blog/github-profile-markdown/
 - 链接 
     - 还不错的教程
        https://cloud.tencent.com/developer/article/1866501

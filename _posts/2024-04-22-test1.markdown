@@ -3,6 +3,7 @@ title: "TEST"
 subtitle: "第一次的尝试post"
 layout: post
 author: "tracer"
+hidden: true
 header-style: text
 tags:
     - Git
