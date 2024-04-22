@@ -3,7 +3,6 @@ title: "GitHub学习资料"
 subtitle: "各种各样的"
 layout: post
 author: "tracer"
-header-style: text
 header-img: "img/bg-about2.jpg"
 tags:
     - Git
