@@ -89,10 +89,15 @@ service-worker: true
 page-mathjax: false
 
 # Favourite
-favourites: 
-[
-  { title: "EveOneCat", href: "http://www.motions.cat/" },
-  { title: "BloonsTD6", href: "https://store.steampowered.com/app/960090/Bloons_TD_6/" },
-  { title: "child-MarkLEE", href: "https://open.spotify.com/track/5HaYRuf3zAfCb8RSO9LLea?si=0be00035dcf64df2" }
-
-]
+favourites:
+  [
+    { title: "EveOneCat", href: "http://www.motions.cat/" },
+    {
+      title: "BloonsTD6",
+      href: "https://store.steampowered.com/app/960090/Bloons_TD_6/",
+    },
+    {
+      title: "child-MarkLEE",
+      href: "https://open.spotify.com/track/5HaYRuf3zAfCb8RSO9LLea?si=0be00035dcf64df2",
+    },
+  ]
