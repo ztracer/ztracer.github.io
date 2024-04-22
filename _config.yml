@@ -92,8 +92,7 @@ page-mathjax: false
 favourites: 
 
 [
-  { title: "EveOneCat", href: "http://www.motions.cat/" },
-
+  { title: "EveOneCat", href: "http://www.motions.cat/" }
 ]
 
 
