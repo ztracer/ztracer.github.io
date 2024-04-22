@@ -69,8 +69,8 @@ netease_comment: false
 # ba_track_id: [your track id]
 
 # Google Analytics
-ga_track_id: "UA-49627206-1" # Format: UA-xxxxxx-xx
-ga_domain: huangxuan.me
+ga_track_id: "G-BCLXXN1RL6"
+ga_domain: ztracer.github.io
 
 # Sidebar settings
 sidebar: true # whether or not using Sidebar.
@@ -96,8 +96,9 @@ favourites:
       title: "BloonsTD6",
       href: "https://store.steampowered.com/app/960090/Bloons_TD_6/",
     },
+    { title: "Mark", href: "https://en.wikipedia.org/wiki/Child_(Mark_song)" },
     {
-      title: "Mark",
-      href: "https://open.spotify.com/track/5HaYRuf3zAfCb8RSO9LLea?si=0be00035dcf64df2",
+      title: "Nayeon",
+      href: "https://en.wikipedia.org/wiki/Pop!_(Nayeon_song)",
     },
   ]

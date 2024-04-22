@@ -11,8 +11,6 @@ tags:
     - Wiki
 ---
 
-# GitHub学习资料
-
 ## GIT基础指令学习
 - 设置全局用户名
    git config --global user.email "ztracer1@gmail.com"
@@ -41,7 +39,7 @@ tags:
            ```
            `git status` 命令会显示所有已修改（但未暂存）、已暂存（但未提交）的文件，以及任何新文件或被删除的文件。
         - 定期运行 git status 来检查仓库状态，帮助管理更改和避免冲突
-    - 2. 暂存更改 ^7721a546-ed29-e4ba
+    - 2. 暂存更改
         - 2. 暂存更改
            如果你想提交所有更改，可以使用：
            ```bash
@@ -51,7 +49,7 @@ tags:
            ```bash
            git add 文件的相对路径
            ```
-    - 3. 提交更改 ^2069ed9f-6891-e60e
+    - 3. 提交更改 
         - 3. 提交更改
            提交你的更改，每次提交都应该附带一个描述性的消息，说明本次提交做了哪些更改：
            ```bash
@@ -107,31 +105,27 @@ tags:
     - 简易不用授权的
         - https://badges.toozhao.com/
         - 每当这个图片被加载时，徽章服务器就会记录一个访问事件
-        - 各种颜色 ^268f3b95-b905-11b5
+        - 各种颜色
             - [![Page Views Count](https://badges.toozhao.com/badges/01HVGJA34B7K22N870GPCZ9JRS/green.svg)](https://badges.toozhao.com/stats/01HVGJA34B7K22N870GPCZ9JRS "Get your own page views count badge on badges.toozhao.com")
             - [![Page Views Count](https://badges.toozhao.com/badges/01HVGHT7MRTM1XT68SBHSPAHB0/blue.svg)](https://badges.toozhao.com/stats/01HVGHT7MRTM1XT68SBHSPAHB0 "Get your own page views count badge on badges.toozhao.com")
             - [![Page Views Count](https://badges.toozhao.com/badges/01HVGHT7MRTM1XT68SBHSPAHB0/orange.svg)](https://badges.toozhao.com/stats/01HVGHT7MRTM1XT68SBHSPAHB0 "Get your own page views count badge on badges.toozhao.com")
-        - HTML ^31eda175-3dda-d991
+        - HTML
             - <img src="https://badges.toozhao.com/badges/01HVGHT7MRTM1XT68SBHSPAHB0/orange.svg" />
     - 自制计数器
         - 效果
+            - <iframe src="https://pleasant-plastic-curiosity.glitch.me/counter" frameborder="0"></iframe>
+            - ![](https://pleasant-plastic-curiosity.glitch.me/counter)
         - 难题
-            - XSS是啥？详细解答在——
-            - https://stackoverflow.com/questions/50588574/embed-github-rendered-md-page-as-iframe
+            - XSS是啥？详细解答在——https://stackoverflow.com/questions/50588574/embed-github-rendered-md-page-as-iframe
         - 教学
             - https://dev.to/ryanlanciaux/quick-github-profile-visit-counter-14en
-            - 一句话
-               https://dev.to/ryanlanciaux/visitor-count-on-your-github-profile-with-one-line-of-markdown-593g
-            - 有人提到的小人
-               https://blog.csdn.net/ZedTorpex/article/details/109064734
-            - 托管平台
-               https://glitch.com/
-            - 避免机制
-               https://rushter.com/blog/github-profile-markdown/
+            - 一句话https://dev.to/ryanlanciaux/visitor-count-on-your-github-profile-with-one-line-of-markdown-593g
+            - 有人提到的小人https://blog.csdn.net/ZedTorpex/article/details/109064734
+            - 托管平台https://glitch.com/
+            - 避免机制https://rushter.com/blog/github-profile-markdown/
 - 链接 
     - 还不错的教程
        https://cloud.tencent.com/developer/article/1866501
-    - <iframe src="https://pleasant-plastic-curiosity.glitch.me/counter" frameborder="0" allowfullscreen></iframe>
     - ![Visitor Count](https://profile-counter.glitch.me/ztracer/count.svg)
 
 - contribution生成器
