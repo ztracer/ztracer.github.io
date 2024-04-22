@@ -4,11 +4,12 @@ subtitle: "各种各样的"
 layout: post
 author: "tracer"
 header-style: text
+header-img: "img/bg-about2.jpg"
 tags:
     - Git
     - OSS
     - Web
-    - Wiki
+    - Git_Cil
 ---
 
 >分享一些GitHub小知识
@@ -33,40 +34,36 @@ tags:
         - 推送到master
            git push -u origin master
     - 2.检查更改 
-        - 1. 检查更改
-           打开命令行工具（如 PowerShell, Terminal 等），并切换到你的项目目录。首先，查看你所做的更改：
-           ```bash
-           cd D:\obsidian\Mind_Map\OSS # 切换到你的项目目录
-           git status
-           ```
-           `git status` 命令会显示所有已修改（但未暂存）、已暂存（但未提交）的文件，以及任何新文件或被删除的文件。
-        - 定期运行 git status 来检查仓库状态，帮助管理更改和避免冲突
+        打开命令行工具（如 PowerShell, Terminal 等），并切换到你的项目目录。首先，查看你所做的更改：
+        ```bash
+        cd D:\obsidian\Mind_Map\OSS # 切换到你的项目目录
+        git status
+        ```
+        `git status` 命令会显示所有已修改（但未暂存）、已暂存（但未提交）的文件，以及任何新文件或被删除的文件。
+        定期运行 `git status` 来检查仓库状态，帮助管理更改和避免冲突
     - 3.暂存更改
-        - 2. 暂存更改
-           如果你想提交所有更改，可以使用：
-           ```bash
-           git add .
-           ```
-           如果只想提交特定文件的更改，可以单独添加这些文件：
-           ```bash
-           git add 文件的相对路径
-           ```
+        如果你想提交所有更改，可以使用：
+        ```bash
+        git add .
+        ```
+        如果只想提交特定文件的更改，可以单独添加这些文件：
+        ```bash
+        git add 文件的相对路径
+        ```
     - 4.提交更改 
-        - 3. 提交更改
-           提交你的更改，每次提交都应该附带一个描述性的消息，说明本次提交做了哪些更改：
-           ```bash
-           git commit -m "这里填备注"
-           ```
+        提交你的更改，每次提交都应该附带一个描述性的消息，说明本次提交做了哪些更改：
+        ```bash
+        git commit -m "这里填备注"
+        ```
     - 5.推送
-        - 4. 推送更改到远程仓库
-           将你的本地更改推送到远程仓库：
-           ```bash
-           git push
-           ```
-           如果是你第一次推送或你之前设置了不同的上游分支，你可能需要指定远程仓库名和分支名：
-           ```bash
-           git push -u origin master # 或使用 main，取决于你的主分支名称
-           ```
+        将你的本地更改推送到远程仓库：
+        ```bash
+        git push
+        ```
+        如果是你第一次推送或你之前设置了不同的上游分支，你可能需要指定远程仓库名和分支名：
+        ```bash
+        git push -u origin master # 或使用 main，取决于你的主分支名称
+        ```
 - Git查询命令
     - git_log的一些参数
 
