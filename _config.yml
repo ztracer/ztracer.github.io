@@ -13,7 +13,7 @@ future: true
 
 # SNS settings
 RSS: false
-weibo_username: ztracer
+weibo_username: /u/ztracer
 zhihu_username: huxpro
 github_username: huxpro
 twitter_username: huxpro
@@ -59,7 +59,7 @@ kramdown:
       start_line: 1
 
 # Disqus settings
-disqus_username: hux
+disqus_username: trac1r
 
 # Netease settings
 netease_comment: false
@@ -74,8 +74,8 @@ ga_domain: huangxuan.me
 
 # Sidebar settings
 sidebar: true # whether or not using Sidebar.
-sidebar-about-description: "要做一个有 swag 的程序员 <br> React Team @ Meta"
-sidebar-avatar: https://github.com/Huxpro.png # use absolute URL, seeing it's used in both `/` and `/about/`
+sidebar-about-description: "你们有没有这样的github.io啊我想问问"
+sidebar-avatar: https://github.com/ztracer.png # use absolute URL, seeing it's used in both `/` and `/about/`
 
 # Featured Tags
 featured-tags: true # whether or not using Feature-Tags
@@ -97,7 +97,7 @@ favourites:
       href: "https://store.steampowered.com/app/960090/Bloons_TD_6/",
     },
     {
-      title: "child-MarkLEE",
+      title: "Mark",
       href: "https://open.spotify.com/track/5HaYRuf3zAfCb8RSO9LLea?si=0be00035dcf64df2",
     },
   ]
