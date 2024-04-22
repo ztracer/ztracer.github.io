@@ -13,7 +13,7 @@ future: true
 
 # SNS settings
 RSS: false
-weibo_username: /u/ztracer
+weibo_username: u/7854345977
 zhihu_username: huxpro
 github_username: huxpro
 twitter_username: huxpro
