@@ -89,10 +89,4 @@ service-worker: true
 page-mathjax: false
 
 # Favourite
-favourites: 
-
-[
-  { title: "EveOneCat", href: "http://www.motions.cat/" }
-]
-
-
+favourites: [{ title: "EveOneCat", href: "http://www.motions.cat/" }]
