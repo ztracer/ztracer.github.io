@@ -1,10 +1,10 @@
 # Site settings
-title: ztracer Blog
-SEOTitle: ztracer的博客 | ztracer Blog
+title: ztracer's Blog
+SEOTitle: ztracer的博客 | ztracer's Blog
 header-img: img/home-bg.jpg
 email: ztracer1@gmail.com
 description: "这里是 @ztracer 的个人博客 | 🌱 🎶 🎧 🕹️"
-keyword: "ztracer, Hux, 鬼栈, huxpro, @huxpro, 黄玄的博客, Hux Blog, 博客, 个人网站, 互联网, Web, JavaScript, React, React Native, 前端, 设计"
+keyword: "ztracer, Security, Music, Game, Life"
 url: "https://huangxuan.me" # your host, for absolute URL
 baseurl: "" # for example, '/blog' if your blog hosted on 'host/blog'
 
@@ -88,15 +88,5 @@ service-worker: true
 # MathJax rendering for layout:page (e.g. post preview)
 page-mathjax: false
 
-# Friends
-friends:
-  [
-    { title: "乱序（Midare）", href: "http://mida.re/" },
-    { title: "Ebn Zhang", href: "https://ebnbin.dev/" },
-    { title: "Kun Qian", href: "http://kunq.me" },
-    { title: "Sherry Woo", href: "https://sherrywoo.me/" },
-    { title: "SmdCn", href: "http://blog.smdcn.net" },
-    { title: "JiyinYiyong", href: "http://tiye.me/" },
-    { title: "DHong Say", href: "http://dhong.co" },
-    { title: "尹峰以为", href: "http://ingf.github.io/" },
-  ]
+# Favourite
+favourites: [{ title: "EveOneCat", href: "http://www.motions.cat/" }]

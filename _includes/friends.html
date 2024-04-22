@@ -1,9 +1,9 @@
-{% if site.friends %}
+{% if site.favourites %}
 <hr>
-<h5>FRIENDS</h5>
+<h5>FAVOURITES</h5>
 <ul class="list-inline">
-  {% for friend in site.friends %}
-  <li><a href="{{friend.href}}">{{friend.title}}</a></li>
+  {% for favourite in site.favourites %}
+  <li><a href="{{favourite.href}}">{{favourite.title}}</a></li>
   {% endfor %}
 </ul>
 {% endif %}

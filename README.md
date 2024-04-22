@@ -1,4 +1,4 @@
-[Hux Blog](https://huangxuan.me)
+[ztracer's Blog](https://ztracer.github.io)
 ================================
 
 > I never expected this to become popular.
