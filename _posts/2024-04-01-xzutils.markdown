@@ -3,7 +3,7 @@ title: "xz-utils前世今生"
 subtitle: "OSS攻击"
 layout: post
 author: "tracer"
-header-img: "img/post-bg-web.jpg.jpg"
+header-img: "img/post-bg-web.jpg"
 tags:
     - Security
     - OSS
