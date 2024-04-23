@@ -81,8 +81,7 @@ tags:
           <img src="https://spotify-recently-played-readme.vercel.app/api?user=31ruraug2cuif4m5trw7fe5x2im4&count=1&width=700" alt="My Spotify">
         </p>
         ```
-- 一键ReadMe文字生成器
-    - https://rahuldkjain.github.io/gh-profile-readme-generator/
+- [一键ReadMe文字生成器](https://rahuldkjain.github.io/gh-profile-readme-generator/)
     - [GitHub](https://github.com/rahuldkjain/github-profile-readme-generator)
 - 浏览计数器
     - 国家地区访问统计【可以有地图的】 
@@ -100,7 +99,7 @@ tags:
         - HTML
             - <img src="https://badges.toozhao.com/badges/01HVGHT7MRTM1XT68SBHSPAHB0/orange.svg" />
     - 自制计数器
-        - 自制效果
+        - 自制EveOneCat计数器效果
             - ![](https://pleasant-plastic-curiosity.glitch.me/counter)
         - 难题
             - XSS是啥？[详细解答](https://stackoverflow.com/questions/50588574/embed-github-rendered-md-page-as-iframe)
@@ -113,7 +112,6 @@ tags:
 - 链接 
     - [还不错的教程](https://cloud.tencent.com/developer/article/1866501)
     - 示例![Visitor Count](https://profile-counter.glitch.me/ztracer/count.svg)
-
 - [contribution生成器](https://github-readme-streak-stats.herokuapp.com/demo/)
 
 ## 3.GitHub.io个人主页教程

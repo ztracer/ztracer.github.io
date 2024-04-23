@@ -1,0 +1,115 @@
+---
+title: "xz-utils前世今生"
+subtitle: "OSS攻击"
+layout: post
+author: "tracer"
+header-img: "img/post-bg-web.jpg.jpg"
+tags:
+    - Security
+    - OSS
+    - research
+    - CVE
+---
+# xz - utils backdoor 
+> CVE-2024-3094
+
+## xz - utils是什么
+- xz Utils 在 Linux 中几乎无处不在。它在几乎所有类 Unix 操作系统上提供无损数据压缩。xz Utils 提供了在各种操作中压缩和解压缩数据的关键功能。xz基于的是lzma压缩算法
+    - 类比win中的WinRAR
+
+## 简要概述
+- Andres Freund 在 2024 年 3 月 29 日发现了一个在 xz-utils 注入的后门；使用了 xz/lzma 5.6.0 / 5.6.1 的项目皆受影响
+- 恶意代码修改了软件的功能。后门操纵了 sshd，即用于建立远程 SSH 连接的可执行文件。任何拥有预定加密密钥的人都可以将他们选择的任何代码隐藏在 SSH 登录证书中，上传并在后门设备上执行。没有人真正看到上传的代码，因此不知道攻击者计划运行什么代码。从理论上讲，该代码几乎可以允许任何事情，包括窃取加密密钥或安装恶意软件
+- [详细得离谱的shell-script](https://research.swtch.com/xz-script)
+
+## 时间线
+>[大佬的时间线完全体讲解](https://research.swtch.com/xz-timeline)
+  
+>下面是我自己的一些小总结
+
+- 更早的时间2005-2008
+    - [Lasse Collin在其他人的帮助下](https://github.com/kobolabs/liblzma/blob/87b7682ce4b1c849504e2b3641cebaad62aaef87/doc/history.txt)，使用LZMA压缩算法设计了.xz文件格式，该算法将文件压缩到gzip的70%左右。随着时间的流逝，这种格式被广泛用于压缩 tar 文件、Linux 内核映像和许多其他用途。
+- 2021
+    - JiaT75 (Jia Tan) 创建了 GitHub 帐户
+    - JT尝试提交了一个fprintf来替代safe_fprintf
+            在xz_backdoor发生之后终于被发现了（有点像逆向作业-v-）
+        - [他的修改](https://github.com/libarchive/libarchive/commit/f27c173d17dc807733b3a4f8c11207c3f04ff34f?diff=split&w=1)
+            - ![libarchive_1.png](/img/inPost/xz-utils/libarchive_1.png)
+            - MINGW64 ~/Desktop/libarchive (release)
+                             $ git blame -L 374,376 tar/read.c
+                             git show f27c173d1（release版本能看到）
+        - [被发现了_pull记录](https://github.com/libarchive/libarchive/pull/1609)
+            - ![faxianle.png](/img/inPost/xz-utils/faxianle.png) 
+        - [被修改回来了](https://github.com/libarchive/libarchive/commit/6110e9c)
+            - ![libarchive_2.png](/img/inPost/xz-utils/libarchive_2.png)
+        >这里用的是git blame
+            - 可以追溯一个指定文件的历史修改记录
+            - 找团队中是哪个成员修改了某文件的某部分的代码
+- 2022
+    - ->原本的项目负责人有心理健康问题，不想大版本更新了
+    - 有人唱双簧!（有人催更新）
+    - 多方压力之下, 项目负责人对JT建立了[信任](https://www.mail-archive.com/xz-devel@tukaani.org/msg00571.html), JiaT开始为xz做贡献
+- 2023
+    - JiaT取得了代码提交的权限
+    - JiaT75在XZ项目中的地位逐渐提升，成为了第二活跃的贡献者。同年，JiaT75合并了第一个提交，这个时候我们主角已经获得了足够的信任。此外，Google的oss-fuzz项目的主要联系邮箱也被更新为Jia的邮箱。
+- 2024
+    - 想要快速并入linux发行版
+    - 被发现
+    - 怎么威胁的
+        - 会hook系统的ssh服务的RSA_public_decrypt函数,这样就可以绕过RSA签名验证
+        - iFunc -> systemd -> ssh
+        - 具体来说
+            - 初步植入：攻击者首先将恶意代码植入到XZ Utils的liblzma库中。这是通过对库的正常更新过程进行操控，加入恶意代码而不引起注意实现的​ 。
+            - 隐藏和执行：为了避免直接将恶意代码推送到公共的git仓库中，从而避开检测，攻击者选择在源代码的tarball（打包版）发布中包含恶意代码，但不直接推送到git仓库。这意味着恶意代码在构建过程中被使用，但在源代码管理中保持相对隐藏​
+            - 构建过程操控：在库的构建过程中，运行恶意的脚本build-to-host.m4，这个脚本解码特定的“测试”文件成为bash脚本。之后，这个bash脚本进行更复杂的解码过程，进一步解码另一个“测试”文件，最终提取出一个共享对象liblzma_la-crc64-fast.o，并将其加入到liblzma的编译过程中​
+            - 符号解析劫持：恶意共享对象被编译进liblzma后，替换了正常的函数名解析过程。在任何过程加载时，函数名会被解析成实际的指针，指向进程内存中的二进制代码。恶意库通过替换常规函数名解析过程，在任何进程加载时，干预函数解析过程，它可以替换OpenSSH函数RSA_public_decrypt的函数指针为恶意版本，从而在SSH密钥认证过程中实现远程代码执行(RCE)​
+            - SSH认证绕过：通过替换RSA_public_decrypt函数，攻击者可以在SSH密钥认证过程中插入自己的函数，如果输入符合特定条件（很可能只有攻击者知道），则允许未授权访问。这基本上是通过在系统中引入一个后门，该后门能够在没有合法认证的情况下执行远程代码​
+        - 恶意代码总结与GIT记录：
+                 https://github.com/karcherm/xz-malware
+
+## 总结图 
+- ![xz-utils.png](/img/inPost/xz-utils/xz-utils.png)
+
+## 一些思考
+- "Let’s just keep doing the good SBOM work at CISA, and stop doing stunts around Huawei and such — Huawei is a speck of dust compared to the issues around tens of thousands of unpaid developers writing the core of the world’s most critical infrastructure nowadays."
+- 开源软件供应链 -》维护不稳定的问题！！！！！
+- 回旋镖来喽：2021年，明尼苏达大学的开发者曾尝试用类似的方法向Linux内核注入漏洞[“伪君子攻击”](https://github.com/QiushiWu/qiushiwu.github.io/blob/main/papers/OpenSourceInsecurity.pdf)，并且成功了。
+    -  以下内容FROM-kimi
+    1. 识别不成熟的漏洞（Immature Vulnerabilities）：论文提出了一种方法来分析开源软件代码，以识别那些尚未完全形成的漏洞，即不成熟的漏洞。这些漏洞尚未满足所有形成条件，例如，一个使用后释放（use-after-free, UAF）漏洞需要满足指针被释放、指针被使用以及使用发生在释放之后的三个条件。
+    2. 构建伪善提交（Constructing Hypocrite Commits）：接着，论文展示了如何构建小型补丁（minor patches），这些补丁在**表面上**修复了一些小问题（如改进错误处理或修复小bug），但**实际上**引入了不成熟漏洞的缺失条件，从而形成了更严重的问题。
+    3. 分析隐蔽性机会（Analyzing Stealthy Opportunities）：论文进一步分析了程序代码，以识别放置伪善提交的隐蔽机会。这包括了识别那些在代码审查过程中容易被忽视的代码路径，例如涉及并发、错误处理路径、间接调用等复杂代码语义的情况。
+    4. 实证研究（Proof-of-Concept）：作为实证研究，论文的作者们以Linux内核为目标，安全地展示了恶意提交者如何通过提交伪善补丁来实际引入UAF漏洞。这些补丁在被接受之前，都需要经过Linux社区的审查。
+    5. 测量和量化风险（Measuring and Quantifying Risks）：论文通过测量和量化分析了伪善提交的普遍性和隐蔽性，以及它们对开源软件安全的潜在影响。
+    6. 提出缓解措施（Proposing Mitigations）：最后，论文提出了一系列缓解措施，旨在减少伪善提交带来的风险，包括更新开源项目的行为准则、开发补丁测试和验证工具、验证提交者身份等。
+        1. 提交者责任与问责制：建议开源项目更新其行为准则，要求提交者在提交补丁时同意不故意引入错误或漏洞。此外，可以通过验证提交者的身份来增加问责性，例如只允许知名组织或个人提交更改，或要求提交者提供证书。
+        2. 补丁分析和测试工具：推荐使用先进的静态分析工具来审查补丁，这些工具可以专门分析代码变更并审计补丁。此外，建议使用高覆盖率或有针对性的动态测试（例如模糊测试）来测试更改后的代码。
+        3. 维护者方面的改进：鉴于开源维护工作主要是由志愿者完成的，建议提高对维护者工作的认可，并尽可能提供激励措施以鼓励更多人参与维护工作。同时，建议社区接受某些针对高风险不成熟漏洞的预防性补丁，以降低未来漏洞形成的风险。
+        4. 提高风险意识：论文建议提高开源社区对伪善提交潜在风险的认识，包括认识到恶意提交者可能存在以及他们可能利用的隐蔽性因素。
+        5. 公共补丁审计：建议邀请更多人参与补丁的审计过程，例如通过get_maintainer.pl脚本更包容性地确定维护者，或允许任何曾对模块做出贡献或订阅Linux开发邮件列表的人参与。
+
+## 现在怎么样了
+
+## 一些链接 
+- [官方通告](https://tukaani.org/xz-backdoor/)
+                      
+- [对国内团队的影响](https://zhuanlan.zhihu.com/p/689953259)
+                      
+- [明尼苏达卢康杰团队之前的论文“伪君子提交”]( https://github.com/QiushiWu/qiushiwu.github.io/blob/main/papers/OpenSourceInsecurity.pdf) : 回旋镖来喽, linux社区的解决思路很超前啊, 解决提出问题的人了
+            
+- [提交的报告视角：发现的工程师的的邮件](https://www.openwall.com/lists/oss-security/2024/03/29/4)：
+             
+- [NVD](https://nvd.nist.gov/vuln/detail/CVE-2024-3094#VulnChangeHistorySection)
+                      
+- [时间线讲解](https://boehs.org/node/everything-i-know-about-the-xz-backdoor)
+                      
+- 相关GIT账户
+    - [JT](https://github.com/JiaT75)
+                       
+- [有人commit"时间"的研究](https://rheaeve.substack.com/p/xz-backdoor-times-damned-times-and)
+                 
+- [施奈尔博客也提到了](https://www.schneier.com/blog/archives/2024/04/backdoor-in-xz-utils-that-almost-happened.html#comments)
+    - [打破信任：不安全的软件供应链中的危机阴影](https://www.atlanticcouncil.org/in-depth-research-reports/report/breaking-trust-shades-of-crisis-across-an-insecure-software-supply-chain/)
+
+
+
+[![Page Views Count](https://badges.toozhao.com/badges/01HW4MG4P4T8YT7K3X9YYC2QWJ/green.svg)](https://badges.toozhao.com/stats/01HW4MG4P4T8YT7K3X9YYC2QWJ "Get your own page views count badge on badges.toozhao.com")
