@@ -1,9 +1,11 @@
 ---
 layout:     post
-title:      "Example Post"
+title:      "TEST1 - Example Post"
 subtitle:   "ES5, ES6, ES2016, ES.Next: What's going on with JavaScript versioning?"
 date:       2023-09-22
 author:     "Hux"
+catalog: false
+published: false
 hidden: true
 header-img: "img/post-bg-js-version.jpg"
 tags:
@@ -51,7 +53,6 @@ JavaScript 有着很奇怪的命名史。
 在这整个 Blog 中，我将把目前的 ECMAScript 版本称作 ES6（因为这是大部分开发者最习以为常的），把明年的规范称作 ES2016（因为，与 ES6/ES2015 不同，这个名字将在整个标准化过程中沿用）并且将那些还没有成为 ECMAScript 定稿或草案的未来语言概念称为 ECMAScript 提案或者 JavaScript 提案。我将尽我所能在任何可能引起困惑的场合沿用这篇文章。
 
 #### 一些资源
-
 
 
 * TC39 的 [Github 仓库](https://github.com/tc39/ecma262)上可以看到所有目前公开的提案

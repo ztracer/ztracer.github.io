@@ -1,0 +1,23 @@
+---
+title: "neo4j基础知识学习"
+subtitle: "一个图数据库"
+layout: post
+author: "tracer"
+date: 2023-04-01
+header-img: "img/post-bg-web.jpg"
+tags:
+    - Cypher
+    - Neo4j
+---
+
+> 待填坑
+
+## 1.基本语法学习
+
+1. [找到的学习网站](https://www.w3cschool.cn/neo4j)
+   [一个很好的教学实例](https://zhuanlan.zhihu.com/p/88745411)
+2. 一些小知识:
+    所有图都是有向图
+    节点和关系都有属性 <键值对>
+    \* 被用作通配符
+3. 
