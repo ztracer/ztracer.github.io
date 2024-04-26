@@ -8,11 +8,13 @@ header-img: "img/inPost/crypto/cryptography-bg.jpg"
 tags:
     - Cryptography
     - Protocol Security
+    - Web Security
 ---
 
 # 现代密码学&网络与协议安全复习
 
 ## 1. 对称密钥加密
+
 #### 1.1 流密码 【Stream Ciphers】
 - 1.1.1 流密码的安全性在于?
     - PRG：安全性关注且 **只** 关注 PRG
@@ -123,6 +125,7 @@ tags:
     - PMAC
         - (⊕)$\sum_{i=0}^{n-1}F(k_i,m[i]⊕P(k,i))$
            tag=F(k1,(⊕))
+
 #### 2.2 抗碰撞【Collision resistance】
 - Attack
     - birthday paradox
@@ -136,6 +139,7 @@ tags:
    D:K\*C\*N -> M U {不存在}
     - 能解决问题1 : 是认证的加密,重放攻击是无效的
     - 能解决问题2 : 同时拥有CPA和CCA(针对oracle的安全)
+
 #### 3.2 construction
 - 1.MAC-then-Encrypt
 - 2.Encrypt-then-MAC
@@ -147,6 +151,7 @@ tags:
 - 基本密钥/会话密钥
 - 公钥加密的：公私钥
 - 用来签名的：公私钥
+
 #### 4.1 认证和授权
 - 4.1.1 认证 (Authentication):进程通过认证过程来验证它的通信对方是否是它所**期望的实体**而不是假冒者【关于who的问题】
 - 4.1.2 认证过程
@@ -206,15 +211,18 @@ tags:
 
 ## 5.公钥加密
 #### 5.1 数论的基本知识
+
 #### 5.2 应用场景
 - 非“互动”应用
 - 会话建立【网络】
+
 #### 5.3 公钥的安全定义
 - 抗窃听
     - 攻击者产生两个信息m0和m1，长度相同，然后攻击者用公交加密得到c0或c1，他不能区分他获得的是m0的加密还是m1的加密。
     - （不用考虑多次加密的情况，因为本身就能多次加密）
 - 对抗主动攻击
     - 选择密文安全
+
 #### 5.4 基于陷门置换的公钥加密
 - 陷门函数TDF
     - 定义
@@ -245,5 +253,6 @@ tags:
     - 预处理
         - 02||random pad(~~FF~~)||FF||msg
         - ATTACK
+
 #### 5.5 基于Diffie-Hellman的公钥加密
 
