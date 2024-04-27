@@ -13,7 +13,7 @@ tags:
 
 # 现代密码学&网络与协议安全复习
 
-<img src='img/51.gif?raw=true' />
+<img src='https://github.com/ztracer/ztracer.github.io/blob/master/img/51.gif?raw=true' />
 
 ## 1. 对称密钥加密
 
