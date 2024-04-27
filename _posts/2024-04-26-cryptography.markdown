@@ -13,6 +13,8 @@ tags:
 
 # 现代密码学&网络与协议安全复习
 
+<img src='img/51.gif?raw=true' />
+
 ## 1. 对称密钥加密
 
 #### 1.1 流密码 【Stream Ciphers】
@@ -103,6 +105,7 @@ tags:
             - 2.nonce ctr-mode
 
 ## 2. 消息完整性【Message Integrity】
+
 #### 2.1 基本定义和应用
 - MAC【Message Authentication Codes】
     - 是一对 生成+验证 的算法
@@ -133,6 +136,7 @@ tags:
 - HMAC(HASH+MAC)
 
 ## 3. 认证加密 【Authenticated Encryption】
+
 #### 3.1 认证加密用来解决什么问题-》不被窃听+不被修改
 - (E,D)一对算法的输出需要满足
    E:K\*M\*N -> C
@@ -146,6 +150,7 @@ tags:
 - 3.Encrypt-and-MAC x
 
 ## 4. 密钥与认证【与谁who-干什么what问题】*写得有点乱这个部分*
+
 #### 4.0 有哪些密钥【网络与协议安全中重要的一个部分】
 - 【**密钥是有生存周期的**】
 - 基本密钥/会话密钥
@@ -255,4 +260,5 @@ tags:
         - ATTACK
 
 #### 5.5 基于Diffie-Hellman的公钥加密
+
 
