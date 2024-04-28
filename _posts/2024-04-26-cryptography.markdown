@@ -13,7 +13,7 @@ tags:
 
 # 现代密码学&网络与协议安全复习
 
-<img src='https://github.com/ztracer/ztracer.github.io/blob/master/img/51.gif?raw=true' />
+<img src='https://github.com/ztracer/ztracer.github.io/blob/master/img/inPost/EOC/155.gif?raw=true' />
 
 ## 1. 对称密钥加密
 
@@ -215,6 +215,7 @@ tags:
 - 密钥交换双方O(n),攻击者O(n<sup>2</sup>)
 
 ## 5.公钥加密
+
 #### 5.1 数论的基本知识
 
 #### 5.2 应用场景
