@@ -70,7 +70,7 @@ tags:
         - 构建 : *feistel network*
             - R/L两个nbit的块组合成2nbit
             - ![](/img/inPost/crypto/DES总体架构.png) 
-            ```mermaid
+            <span class='mermaid'>
             graph LR
             A[明文] -->|64 bit| B[初始置换]
             B --> C((Round1))
@@ -78,7 +78,7 @@ tags:
             D --> E((Round16))
             E --> F[初始逆置换]
             F --> |64 bit| G[密文]
-            ```
+            </span>
             <!-- https://mermaid.nodejs.cn/syntax/flowchart.html -->
 
             - 黄色部分的：初始置换和初始逆置换![](/img/inPost/crypto/DES初始置换和初始逆置换.png)
