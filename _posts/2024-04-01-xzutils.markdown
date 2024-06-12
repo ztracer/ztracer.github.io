@@ -114,6 +114,6 @@ tags:
 - [施奈尔博客也提到了](https://www.schneier.com/blog/archives/2024/04/backdoor-in-xz-utils-that-almost-happened.html#comments)
     - [打破信任：不安全的软件供应链中的危机阴影](https://www.atlanticcouncil.org/in-depth-research-reports/report/breaking-trust-shades-of-crisis-across-an-insecure-software-supply-chain/)
 
-
+- [蛮好的讲解视频](https://www.youtube.com/watch?v=Q6ovtLdSbEA)
 
 [![Page Views Count](https://badges.toozhao.com/badges/01HW4MG4P4T8YT7K3X9YYC2QWJ/green.svg)](https://badges.toozhao.com/stats/01HW4MG4P4T8YT7K3X9YYC2QWJ "Get your own page views count badge on badges.toozhao.com")
