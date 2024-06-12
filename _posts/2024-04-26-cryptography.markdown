@@ -10,9 +10,6 @@ tags:
     - Protocol Security
     - Web Security
 ---
-<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
-<script>mermaid.initialize({startOnLoad:true});</script>
-
 
 # 现代密码学&网络与协议安全复习
 
