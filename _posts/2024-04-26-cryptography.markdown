@@ -67,18 +67,16 @@ tags:
         - 构建 : *feistel network*
             - R/L两个nbit的块组合成2nbit
             - ![](/img/inPost/crypto/DES总体架构.png)
-            - 黄色部分的：初始置换和初始逆置换
-            - ![](/img/inPost/crypto/DES初始置换和初始逆置换.png)
+            - 黄色部分的：初始置换和初始逆置换![](/img/inPost/crypto/DES初始置换和初始逆置换.png)
             - 初始置换与初始逆置换是互逆的
-            - DES每轮迭代加密：
-            - ![](/img/inPost/crypto/DES每轮迭代加密.png)
-            - 其中的*f*函数是什么？
-            - ![](/img/inPost/crypto/DES-f函数.png)
+            - DES每轮迭代加密：![](/img/inPost/crypto/DES每轮迭代加密.png)
+            - 其中的*f*函数是什么？![](/img/inPost/crypto/DES-f函数.png)
             - 
         - attack
         - 3DES
            n=64bits
            k=168bits
+        - [一个比较好的讲解]]https://blog.csdn.net/qq_44131896/article/details/117573452
     - AES【Advanced Encryption Standard】
         - 构建 : 可逆的Subs-Perm Network
         - n=128bits
