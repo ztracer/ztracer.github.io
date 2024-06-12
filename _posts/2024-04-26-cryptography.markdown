@@ -84,7 +84,7 @@ tags:
             - 其中的*f*函数是什么？![](/img/inPost/crypto/DES-f函数.png)
             ```mermaid
             graph TD
-            R["R<32bit>"] --> Ebox
+            R["R<32bit>"] -->|32 bit| Ebox
 
             Ebox -- 48bit --> +((+))
             密钥K -- 48bit --> +
