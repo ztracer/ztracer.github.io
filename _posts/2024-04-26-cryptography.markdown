@@ -66,17 +66,57 @@ tags:
     - DES【data encryption standard】：第一个并且是最重要的现代分组密码算法（用 **56位密钥**来加密 **64位数据**的方法）
         - 构建 : *feistel network*
             - R/L两个nbit的块组合成2nbit
-            - ![](/img/inPost/crypto/DES总体架构.png)
+            - ![](/img/inPost/crypto/DES总体架构.png) 
+            ```mermaid
+            graph LR
+            A[明文] -->|64 bit| B[初始置换]
+            B --> C((Round1))
+            C --> D((Roundi))
+            D --> E((Round16))
+            E --> F[初始逆置换]
+            F --> |64 bit| G[密文]
+            ```
+            <!-- https://mermaid.nodejs.cn/syntax/flowchart.html -->
+
             - 黄色部分的：初始置换和初始逆置换![](/img/inPost/crypto/DES初始置换和初始逆置换.png)
             - 初始置换与初始逆置换是互逆的
             - DES每轮迭代加密：![](/img/inPost/crypto/DES每轮迭代加密.png)
             - 其中的*f*函数是什么？![](/img/inPost/crypto/DES-f函数.png)
-            - 
+            ```mermaid
+            graph TD
+            R["R<32bit>"] --> Ebox
+
+            Ebox -- 48bit --> +((+))
+            密钥K -- 48bit --> +
+
+            + -->|6 bit| S1
+            + -->|6 bit| S2
+            + -->|6 bit| S3
+            + -->|6 bit| S4
+            + -->|6 bit| S5
+            + -->|6 bit| S6
+            + -->|6 bit| S7
+            + -->|6 bit| S8
+
+            S1 -->|4 bit| Pbox
+            S2 -->|4 bit| Pbox
+            S3 -->|4 bit| Pbox
+            S4 -->|4 bit| Pbox
+            S5 -->|4 bit| Pbox
+            S6 -->|4 bit| Pbox
+            S7 -->|4 bit| Pbox
+            S8 -->|4 bit| Pbox
+
+            Pbox --> Result[32bit数据]
+
+            ``` 
+            
         - attack
         - 3DES
            n=64bits
            k=168bits
-        - [一个比较好的讲解]]https://blog.csdn.net/qq_44131896/article/details/117573452
+        - 
+        - [一个比较好的关于DES的讲解]]https://blog.csdn.net/qq_44131896/article/details/117573452
     - AES【Advanced Encryption Standard】
         - 构建 : 可逆的Subs-Perm Network
         - n=128bits
