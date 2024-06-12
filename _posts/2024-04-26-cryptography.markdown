@@ -10,6 +10,13 @@ tags:
     - Protocol Security
     - Web Security
 ---
+<span class='mermaid'>
+graph LR
+Box1["Hi"] --> BoxHaha["Haha"]
+</span>
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10.2.3/dist/mermaid.min.js"></script>
+
 
 # 现代密码学&网络与协议安全复习
 
@@ -85,10 +92,8 @@ tags:
             ```mermaid
             graph TD
             R["R<32bit>"] -->|32 bit| Ebox
-
             Ebox -- 48bit --> +((+))
             密钥K -- 48bit --> +
-
             + -->|6 bit| S1
             + -->|6 bit| S2
             + -->|6 bit| S3
@@ -96,8 +101,7 @@ tags:
             + -->|6 bit| S5
             + -->|6 bit| S6
             + -->|6 bit| S7
-            + -->|6 bit| S8
-
+            + -->|6 bit| S
             S1 -->|4 bit| Pbox
             S2 -->|4 bit| Pbox
             S3 -->|4 bit| Pbox
@@ -106,9 +110,7 @@ tags:
             S6 -->|4 bit| Pbox
             S7 -->|4 bit| Pbox
             S8 -->|4 bit| Pbox
-
             Pbox --> Result[32bit数据]
-
             ``` 
             
         - attack
