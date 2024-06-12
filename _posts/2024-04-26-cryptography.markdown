@@ -67,6 +67,7 @@ tags:
         - 构建 : *feistel network*
             - R/L两个nbit的块组合成2nbit
             - ![](/img/inPost/crypto/DES总体架构.png) 
+
             <span class='mermaid'>
             graph LR
             A[明文] -->|64 bit| B[初始置换]
@@ -76,12 +77,14 @@ tags:
             E --> F[初始逆置换]
             F --> |64 bit| G[密文]
             </span>
+
             <!-- https://mermaid.nodejs.cn/syntax/flowchart.html -->
 
             - 黄色部分的：初始置换和初始逆置换![](/img/inPost/crypto/DES初始置换和初始逆置换.png)
             - 初始置换与初始逆置换是互逆的
             - DES每轮迭代加密：![](/img/inPost/crypto/DES每轮迭代加密.png)
             - 其中的*f*函数是什么？![](/img/inPost/crypto/DES-f函数.png)
+             
             ```mermaid
             graph TD
             R["R<32bit>"] -->|32 bit| Ebox
@@ -105,7 +108,6 @@ tags:
             S8 -->|4 bit| Pbox
             Pbox --> Result[32bit数据]
             ``` 
-            
         - attack
         - 3DES
            n=64bits
