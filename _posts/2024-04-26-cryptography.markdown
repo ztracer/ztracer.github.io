@@ -14,8 +14,7 @@ tags:
 graph LR
 Box1["Hi"] --> BoxHaha["Haha"]
 </span>
-
-<script src="https://cdn.jsdelivr.net/npm/mermaid@10.2.3/dist/mermaid.min.js"></script>
+<script src="https://letmefly.xyz/Links/mermaid.min.js"></script>
 
 
 # 现代密码学&网络与协议安全复习
