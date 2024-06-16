@@ -4,7 +4,6 @@ subtitle: "密码学复习"
 layout: post
 author: "tracer"
 hidden: true
-published: false
 header-img: "img/inPost/crypto/cryptography-bg.jpg"
 tags:
     - Cryptography
