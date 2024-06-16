@@ -4,6 +4,8 @@ subtitle: "密码学复习"
 layout: post
 author: "tracer"
 hidden: true
+catalog: false
+published: false
 header-img: "img/inPost/crypto/cryptography-bg.jpg"
 tags:
     - Cryptography
@@ -323,7 +325,7 @@ SO -> 我们需要加密与认证分离
         - 输出(y,E(k,m))
 - PKCS1
     - 预处理
-        - 02\||random pad(~~FF~~)\||FF\||msg
+        - 02\|\|random pad(~~FF~~)\|\|FF\|\|msg
         - ATTACK
 
 #### 5.5 基于Diffie-Hellman的公钥加密
