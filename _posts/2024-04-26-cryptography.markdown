@@ -4,7 +4,7 @@ subtitle: "密码学复习"
 layout: post
 author: "tracer"
 hidden: true
-
+published: false
 header-img: "img/inPost/crypto/cryptography-bg.jpg"
 tags:
     - Cryptography
@@ -170,7 +170,7 @@ key k  -----扩展成------> 多次加密所需的k<sub>n</sub>
 
 ## 3. 认证加密 【Authenticated Encryption】
 
-### 单纯的加解密算法（解决机密性问题）无法抵抗下述攻击：
+单纯的加解密算法（解决机密性问题）无法抵抗下述攻击：
 • 内容修改
 • 顺序修改
 • 计时修改
