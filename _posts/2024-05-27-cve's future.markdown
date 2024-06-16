@@ -30,8 +30,8 @@ NVD官网 https://www.nist.gov/itl/nvd
 
 4.25 nvd https://nvd.nist.gov/general/news/nvd-program-transition-announcement
 
-![alt text](img/inPost/CVE/425NVD-en.png)
-![alt text](img/inPost/CVE/425NVD-zh.png)
+![alt text](/img/inPost/CVE/425NVD-en.png)
+![alt text](/img/inPost/CVE/425NVD-zh.png)
 
 5.14 https://www.infosecurity-magazine.com/news/nist-unveils-new-nvd-consortium/
 
@@ -41,8 +41,8 @@ CHINA CNVD? https://www.atlanticcouncil.org/in-depth-research-reports/report/sle
 
 5.30 https://www.infosecurity-magazine.com/interviews/open-source-key-nvd-overreliance/
 
-![alt text](img/inPost/CVE/529NVD-en.png)
-![alt text](img/inPost/CVE/529NVD-zh.png)
+![alt text](/img/inPost/CVE/529NVD-en.png)
+![alt text](/img/inPost/CVE/529NVD-zh.png)
 
 
 ## 安全人员视角->有人发现·····

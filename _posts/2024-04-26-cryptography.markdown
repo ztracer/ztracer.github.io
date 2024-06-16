@@ -21,13 +21,17 @@ tags:
 <img src='https://github.com/ztracer/ztracer.github.io/blob/master/img/inPost/EOC/155.gif?raw=true' />
 
 ## 1. 对称密钥加密
+
 #### 1.1 流密码 【Stream Ciphers】
+
 ##### 1.1.1 流密码的安全性在于?
 - PRG：安全性关注且 **只** 关注 PRG
+
 ##### 1.1.2 OTP：one time pad 【真正的安全.jpg】
 - attack
   - 2TP
   - NO integrity-malleable
+
 ##### 1.1.3 伪随机数生成器PRG【 PseudoRandom Generators】
 - 使得OTP更加实用
 - G:{0,1}^s -> {0,1}^n 其中n >> s
@@ -39,6 +43,7 @@ tags:
           统计测试A输出1的可能性概率
           相对于
           PRG输出1的可能性概率的差
+
 ##### 1.1.4 流密码的一些实际的例子
 - [RC4](https://en.wikipedia.org/wiki/RC4)
     - 面向软件设计的
@@ -47,10 +52,13 @@ tags:
     - 现状：badly broken
     - 用的PRG是LSFR
         - LSFR专题: [知乎](https://zhuanlan.zhihu.com/p/366067972)
+
 #### 1.2 分组密码 【Block Ciphers】
+
 ##### 1.2.1 基本模型
 key k  -----扩展成------> 多次加密所需的k<sub>n</sub>
     m 经过 n 轮加密
+
 ##### 1.2.2 PRP & PRF
 - PR**Function** : K*X -> Y
     - Security: 与F[x,y]不可区分
@@ -61,6 +69,7 @@ key k  -----扩展成------> 多次加密所需的k<sub>n</sub>
         - 分组密码的安全性保障
 - PRF ---构建---> PRGenerator
     - Security: PRG生成的K能使得PRF与真随机不可区分
+
 ##### 1.2.3 standard 分组密码标准
 **DES【data encryption standard】**：第一个并且是最重要的现代分组密码算法（用 **56位密钥**来加密 **64位数据**的方法）
 - 构建*feistel network* : 
@@ -95,6 +104,7 @@ key k  -----扩展成------> 多次加密所需的k<sub>n</sub>
 **AES【Advanced Encryption Standard】**：
 - n=128bits；k=128\192\256bits
 - 构建 : 可逆的Subs-Perm Network——in GF(2<sup>8</sup>)
+
 ##### 1.2.4 分组密码的工作模式 Using Block Ciphers
 - ECB【electronic code book】
     - 泄露轮廓信息（相同明文加密产生相同密文）
@@ -125,7 +135,9 @@ key k  -----扩展成------> 多次加密所需的k<sub>n</sub>
       - 1.rand ctr-mode
           - c[L]=m[L]⊕F(k,IV+L)
       - 2.nonce ctr-mode
+
 ## 2. 消息完整性【Message Integrity】
+
 #### 2.1 基本定义和应用
 ##### MAC【Message Authentication Codes】
 - 是一对 生成+验证 的算法
@@ -148,11 +160,13 @@ key k  -----扩展成------> 多次加密所需的k<sub>n</sub>
 - PMAC
     - (⊕)$\sum_{i=0}^{n-1}F(k_i,m[i]⊕P(k,i))$
        tag=F(k1,(⊕))
+
 #### 2.2 抗碰撞【Collision resistance】
 - Attack
     - birthday paradox
 - 构建抗碰撞的HASH--Merkle-Damgard Paradigm
 - HMAC(HASH+MAC)
+
 ## 3. 认证加密 【Authenticated Encryption】
 
 #### 单纯的加解密算法（解决机密性问题）无法抵抗下述攻击：
@@ -199,6 +213,7 @@ SO -> 我们需要加密与认证分离
   - 抗原像攻击（单向性）：*对任意给定的散列码h，找到满足H(x)=h的x*在计算上不可行，单向性。
   - 抗第二原像攻击（抗弱碰撞攻击）：*对任何给定分组x，找到满足y≠x且H(x)=H(y)的y*在计算上不可行，抗弱碰撞性。
   - 抗碰撞攻击（抗强碰撞攻击）：*找到任何满足H(x)=H(y)的偶对(x, y)*在计算上不可行，抗强碰撞性。
+
 ## 4. 密钥与认证【与谁-干什么；who-what问题】*写得有点乱这个部分*
 
 ### 4.0 有哪些密钥【网络与协议安全中重要的一个部分】
@@ -214,6 +229,7 @@ SO -> 我们需要加密与认证分离
 认证 (Authentication):进程通过认证过程来验证它的通信对方是否是它所**期望的实体**而不是假冒者【关于who的问题】
 
 #### 4.1.1 需要建立共享密钥:
+
 ##### ✔️方法1【**非对称加密**的D-H】: (※这个方法依赖于离散对数问题的难度)
 1. 初始化：A选取一个生成元g和一个大素数p，发送给B
 2. A随机选取0<x<p-1，计算X = g<sup>x</sup> mod p后，将X传给B
@@ -263,6 +279,7 @@ SO -> 我们需要加密与认证分离
 
 ### 4.3 Merkle Puzzles
 - 密钥交换双方O(n),攻击者O(n<sup>2</sup>)
+
 ## 5.公钥加密
 
 #### 5.1 数论的基本知识
@@ -395,21 +412,24 @@ Web安全威胁：完整性、机密性、拒绝服务、认证
         - 若需要双向的安全交换，就要用两个安全关联。
         - 提供给一个SA的安全服务用于AH（身份认证头）或ESP（封装安全载荷），但不能同时用于两者。
 - ※2：IP 安全策略
-- 
+
 
 #### 3.传输层 —— SSL(Secure Sockets Layer)/TLS(Transport Layer Security)
 
 ##### 3.1 SSL
 
-ssl连接（connection）：暂时的，点对点，提供恰当类型服务的传输
+SSL连接（connection）：暂时的，点对点，提供恰当类型服务的传输
 
-ssl会话（session）：会话定义了一组可供多个连接共享的密码安全参数，为客户与服务器之间的关联。会话避免了为每一个连接提供新的安全参数所需昂贵的协商代价
+SSL会话（session）：会话定义了一组可供多个连接共享的密码安全参数，为客户与服务器之间的关联。会话避免了为每一个连接提供新的安全参数所需昂贵的协商代价
 
 SSL 记录协议为 SSL 连接提供两种服务
 - 保密性/机密性：握手协议定义了共享的、可以对 SSL 有效载荷进行常规加密的密钥。
 - 消息完整性：握手协议定义了共享的、可以用来形成报文鉴别码**MAC** 的密钥。
 
+
 ##### 3.2 TLS
+
+![](/img/inPost/crypto/TLS.png)
 
 ##### 3.3 HTTPS
 
@@ -431,7 +451,7 @@ HTTPS被加密的内容：
 
 非交互的发送---RSA公钥发送
 
-会话密钥---传统加密（主要是太大了，公钥不太适合）
+会话密钥---传统加密（主要是太大了，公钥加密不太适合）
 
 #### 5.无线网络安全
 
