@@ -3,7 +3,6 @@ title: "Cryptography"
 subtitle: "密码学复习"
 layout: post
 author: "tracer"
-hidden: true
 header-img: "img/inPost/crypto/cryptography-bg.jpg"
 tags:
     - Cryptography
@@ -300,6 +299,9 @@ SHA-256:密钥、结果256-块512
 ### 4.3 Merkle Puzzles
 - 密钥交换双方O(n),攻击者O(n<sup>2</sup>)
 
+### 4.4 [X.509证书结构](https://cloud.tencent.com/developer/article/1883540)
+![](https://ask.qcloudimg.com/http-save/yehe-8818887/772e432e9f0dbbd5dbc585118e60b5ec.png)
+
 ## 5.公钥加密
 
 ### 5.1 数论的基本知识
@@ -391,20 +393,6 @@ tips:补充
     5. 系统应可以携带，不应需要两个人或以上才能使用（应只要一个人就能使用）。
     6. 系统应容易使用，不致让用户的脑力过分操劳，也无需记得长串的规则。
 
-### 1.4 对称加密算法
-- **流密码**：每次加密时密钥只使用一次
-- **分组密码**：如AES的不同变体（AES-128, AES-192, AES-256）
-- 传统加密技术->密码学模块来考**计算题**
-
-### 1.5 公钥密码体系
-- **RSA算法**：理解其数学基础和加密/解密过程
-
-### 1.6 安全协议
-- **消息认证码（MAC）**：使用哈希函数进行消息认证
-- **数字签名**：确保消息的完整性和来源验证
-
-### 1.9 各类协议
-
 ### 1.10 网络攻击与防护
 - **恶意软件**：依赖于宿主的和独立于宿主 or 不进行复制的和进行复制
 - **入侵检测系统**：基于规则和异常的检测技术
@@ -414,9 +402,6 @@ tips:补充
 - **哈希表**：用于存储和验证用户口令
 - **错误过滤器**：减少碰撞概率和提高安全性
 
-### 1.12 防火墙
-- **作用**：监控和控制进出网络流量
-- **局限性**：不能完全保证网络安全
 
 ## Web安全、Internet 安全途径
 
@@ -433,7 +418,7 @@ Web安全威胁：完整性、机密性、拒绝服务、认证
 
 #### IPSec
 
-[h3c的官方讲解，讲的蛮好的，很详细](https://www.bilibili.com/video/BV1gS4y1A7P)
+[h3c的官方讲解，讲的蛮好的，很详细](https://www.bilibili.com/video/BV1gS4y1A7PG)
 
 - 提供的服务：数据机密性（加密）、数据完整性（HASH）、数据来源认证（数字签名）、抗重放（序列号）
 
@@ -450,6 +435,8 @@ Web安全威胁：完整性、机密性、拒绝服务、认证
     - **※封装模式**：
       - 传输模式：不改变IP传输的报头，适用于安全传输的起点和终点为**实际的**起点和终点（用于两个主机之间的端到端通信）。
       - 隧道模式：头尾插入到IP报文之前，加新的IP头。保护安全网关的起点和终点，非数据包的实际起点和终点
+- 加密和认证流程![](/img/inPost/crypto/IPSec加密过程.png)
+- 
 
 
 
@@ -465,10 +452,11 @@ SSL 记录协议为 SSL 连接提供两种服务
 - 保密性/机密性：握手协议定义了共享的、可以对 SSL 有效载荷进行常规加密的密钥。
 - 消息完整性：握手协议定义了共享的、可以用来形成报文鉴别码**MAC** 的密钥。
 
-
 #### 3.2 TLS
 
 ![](/img/inPost/crypto/TLS.png)
+[四个步骤、详细知识点](https://segmentfault.com/a/1190000002554673)
+[原文](https://blog.cloudflare.com/keyless-ssl-the-nitty-gritty-technical-details/)
 
 TLS连接是使用传输层安全协议在客户端和服务器之间建立的安全通信通道。它为通过互联网传输的数据提供隐私、完整性和身份验证。
 
@@ -492,6 +480,8 @@ TLS握手是在客户端和服务器之间建立安全会话的关键过程。�
 
 #### 3.3 HTTPS
 
+[整体讲解的非常好的博客](https://segmentfault.com/a/1190000021494676)
+
 HTTPS：HTTP + **S**SL/TLS=HTTP**S**实现浏览器和服务器之间的安全通信。
 
 HTTPS被加密的内容：
@@ -501,7 +491,9 @@ HTTPS被加密的内容：
 - Cookie
 - 文件内容
 
-### 4.应用层 —— S/MIME, PGP, PEM, SET, Kerberos, SHTTP, SSH ……
+![](https://segmentfault.com/img/bVbClUl)
+
+### 4.应用层 —— S/MIME, PGP, PEM, SET, Kerberos, SHTTP, SSH
 
 #### 安全电子邮件系统 PGP (Pretty Good Privacy)
 
