@@ -120,7 +120,7 @@ key k  -----扩展成------> 多次加密所需的k<sub>n</sub>
 **※重要※**：最后一轮没列混合
 
 #### 1.2.4 分组密码的工作模式 Using Block Ciphers
-- ECB【electronic code book】
+- **ECB**【electronic code book】
     - 泄露轮廓信息（相同明文加密产生相同密文）
     ![](/img/inPost/crypto/ECB-beenSeen.png)
     由于在此图像中，许多像素具有相同的颜色，因此这些相同的块加密为相同的密文块。
@@ -136,7 +136,7 @@ key k  -----扩展成------> 多次加密所需的k<sub>n</sub>
           - nonce的选择方法
              1.random
              2.counter(数据包的计数器)
-- CBC【cipher block chaining】
+- **CBC**【cipher block chaining】
   - 构建CBC：
     ![构建CBC](https://upload.wikimedia.org/wikipedia/commons/8/80/CBC_encryption.svg)
       1. random *IV*
@@ -148,12 +148,13 @@ key k  -----扩展成------> 多次加密所需的k<sub>n</sub>
 
   - 明文短了怎么办 -> 补齐到加密格的大小
       - Attack: 存在密文偷窃问题
-- CTR【counter mode】
+- **CTR**【counter mode】
   - 构建CTR
     ![](https://bernardoamc.com/4d9317e0640a84dba1dc08ad8adc3d8a/ctr_encryption.svg)
       - 1.rand ctr-mode
           - c[L]=m[L]⊕F(k,IV+L)
       - 2.nonce ctr-mode
+- 
 
 ## 2. 消息完整性【Message Integrity】
 
@@ -294,6 +295,9 @@ SHA-256:密钥、结果256-块512
 
 >【基于可信第三方的认证，分布式环境下的认证服务】
 
+- 一个认证服务器（Authentication Server，简称 AS）：验证Client端的身份（确定你是身份证上的本人），验证通过就会给一张票证授予票证（Ticket Granting Ticket，简称 TGT）给 Client。
+- 一个票据授权服务器（Ticket Granting Server，简称 TGS）：通过 TGT（AS 发送给 Client 的票）获取访问 Server 端的票（Server Ticket，简称 ST）。ST（Service Ticket）也有资料称为 TGS Ticket。
+
 ![](/img/inPost/crypto/Kerberos.png)
 
 ### 4.3 Merkle Puzzles
@@ -335,7 +339,7 @@ tips:补充
     - 错误的使用方法
         - 对明文m直接使用陷门函数（泄露轮廓信息）
 - RSA陷门
-    - TESTBOOK RSA【是一种错误的使用方法】
+    - TESTBOOK RSA【是一种[错误的](https://www.packetmania.net/2020/12/01/RSA-attack-defense/)使用方法】
         - p/q ≈ 1024bits
            N=pq
            ed=1(mod Φ(N)) e->加密指数 d->解密指数
@@ -398,10 +402,6 @@ tips:补充
 - **入侵检测系统**：基于规则和异常的检测技术
 - **蜜罐技术**：诱捕攻击者
 
-### 1.11 口令安全
-- **哈希表**：用于存储和验证用户口令
-- **错误过滤器**：减少碰撞概率和提高安全性
-
 
 ## Web安全、Internet 安全途径
 
@@ -436,9 +436,6 @@ Web安全威胁：完整性、机密性、拒绝服务、认证
       - 传输模式：不改变IP传输的报头，适用于安全传输的起点和终点为**实际的**起点和终点（用于两个主机之间的端到端通信）。
       - 隧道模式：头尾插入到IP报文之前，加新的IP头。保护安全网关的起点和终点，非数据包的实际起点和终点
 - 加密和认证流程![](/img/inPost/crypto/IPSec加密过程.png)
-- 
-
-
 
 ### 3.传输层 —— SSL(Secure Sockets Layer)/TLS(Transport Layer Security)
 
@@ -508,6 +505,8 @@ HTTPS被加密的内容：
 #### IEEE 802.11
 
 #### IEEE 802.11i
+
+[发展历程](https://blog.csdn.net/dolphin98629/article/details/39934373)
 
 无线网络安全是确保无线网络数据传输安全的重要方面。802.11i是IEEE 802.11无线网络标准的一个重要修正案，它专注于提高无线网络的安全性。在802.11i标准中，引入了多种加密和认证机制，其中WAP（Wired Equivalent Privacy，有线等效保密）和CCMP（Counter Mode with Cipher Block Chaining Message Authentication Code Protocol，计数器模式密码块链接消息认证码协议）是两个关键的组成部分。
 
