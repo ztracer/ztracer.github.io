@@ -80,7 +80,7 @@ key k  -----扩展成------> 多次加密所需的k<sub>n</sub>
         ![](/img/inPost/crypto/DES-E盒扩展.png)
         将32bit扩展到48bit
        2. 48bitEbox输出与48bit密钥逐一异或
-       3. Substitution-Sbox【混乱】：分成8块(Sbox是核心!是非线性变换的关键)![](/img/inPost/crypto/DES-S盒.png)Sbox提供了密码算法所必须的混乱作用，将48bit变回32bit
+       3. Substitution-Sbox【混乱】：48bit分成8块*6bit(Sbox是核心!是非线性变换的关键)![](/img/inPost/crypto/DES-S盒.png)Sbox提供了密码算法所必须的混乱作用，将48bit变回32bit
        4. Permutation-Pbox【扩散】：32bit进行很常见的"置换"后同样输出32bit数据。
     4. 密钥扩展（原始密钥64bit -> 扩展成最终每轮的48bit）
        1. **PC-1置换选择**：置换 + 选择64bit其中的56bit【其中有8位是奇偶效验位（8,16,24,32,40,48,56,64）不做置换处理】
@@ -220,7 +220,7 @@ SO -> 我们需要加密与认证分离
 ### 3.3 安全的散列函数
 为文件、消息或其他数据块产生“指纹”，浓缩任意长的消息M到一个固定长度的取值h=H(M)，对于Hash函数h=H(x)，称x是h的原像，称即把数据块x作为输入，称使用Hash函数H得到h。
 
-- 如果满足**x≠y**且**H(x)=H(y)****，称则称出现碰撞 (collision)
+- 如果满足**x≠y**且**H(x)=H(y)****，称则称出现碰撞：
   - 抗原像攻击（单向性）：*对任意给定的散列码h，找到满足H(x)=h的x* 在计算上不可行，单向性。
   - 抗第二原像攻击（抗弱碰撞攻击）：*对任何给定分组x，找到满足y≠x且H(x)=H(y)的y* 在计算上不可行，抗弱碰撞性。
   - 抗碰撞攻击（抗强碰撞攻击）：*找到任何满足H(x)=H(y)的偶对(x, y)* 在计算上不可行，抗强碰撞性。
@@ -289,9 +289,9 @@ SHA-256:密钥、结果256-块512
     - A --------------------R<sub>A</sub>------------------> B
     - A <---R<sub>B</sub>,HMAC[R<sub>A</sub>,R<sub>B</sub>,A,B,K<sub>AB</sub>]-- B
     - A ---------HMAC[R<sub>A</sub>,R<sub>B</sub>,K<sub>AB</sub>]-------> B 【A告诉B我能解出来】
-两个 HMAC 包含发送方选择的值，KAB攻击者未知，攻击者无法修改选择的值。
+两个 HMAC 包含发送方选择的值，K<sub>AB</sub>攻击者未知，攻击者无法修改选择的值。
 
-### 4.2 现有的解决方案1：Kerberos 
+### 4.2 现有的解决方案1：[Kerberos](https://cloud.tencent.com/developer/article/1496451) 
 
 >【基于可信第三方的认证，分布式环境下的认证服务】
 
@@ -299,6 +299,7 @@ SHA-256:密钥、结果256-块512
 - 一个票据授权服务器（Ticket Granting Server，简称 TGS）：通过 TGT（AS 发送给 Client 的票）获取访问 Server 端的票（Server Ticket，简称 ST）。ST（Service Ticket）也有资料称为 TGS Ticket。
 
 ![](/img/inPost/crypto/Kerberos.png)
+
 
 ### 4.3 Merkle Puzzles
 - 密钥交换双方O(n),攻击者O(n<sup>2</sup>)
@@ -323,6 +324,9 @@ tips:补充
     - 选择密文安全
 
 ### 5.4 基于陷门置换的公钥加密
+
+[手算RSA](https://www.cnblogs.com/moshk/p/13162447.html)
+
 - 陷门函数TDF
     - 定义
         - *加密过程* E(pk,m):
@@ -352,6 +356,7 @@ tips:补充
     - 预处理
         - 02\|\|random pad(~~FF~~)\|\|FF\|\|msg
         - ATTACK
+- [修复方法](https://blog.csdn.net/weixin_54634208/article/details/131608780)
 
 ### 5.5 基于Diffie-Hellman的公钥加密
 
@@ -432,9 +437,9 @@ Web安全威胁：完整性、机密性、拒绝服务、认证
   - 包括：
     - 安全协议：AH(来源/完整性/抗重放)、ESP(加密/来源/完整性/抗重放)
     - 算法：加密(DES/AES/3DES/SM4)、密钥协商算法(DH)、认证算法(MD5、SHA1、SM3)
-    - **※封装模式**：
+    - **封装模式**：
       - 传输模式：不改变IP传输的报头，适用于安全传输的起点和终点为**实际的**起点和终点（用于两个主机之间的端到端通信）。
-      - 隧道模式：头尾插入到IP报文之前，加新的IP头。保护安全网关的起点和终点，非数据包的实际起点和终点
+      - 隧道模式：头尾插入到IP报文之前，加新的IP头。保护安全网关的起点和终点，非数据包的实际起点和终点。
 - 加密和认证流程![](/img/inPost/crypto/IPSec加密过程.png)
 
 ### 3.传输层 —— SSL(Secure Sockets Layer)/TLS(Transport Layer Security)
@@ -657,3 +662,9 @@ F --> |64 bit| G[密文]
 [LMAR博主的AES、DES都蛮清晰](https://blog.csdn.net/qq_44131896/article/details/117626013)
 
 [密码学部分的基础 —— Dan Boneh斯坦福密码学课程](https://www.coursera.org/learn/crypto)
+
+[安全协议部分大全讲解](https://thomas-li-sjtu.github.io/2020/11/03/Internet%E5%AE%89%E5%85%A8%E5%8D%8F%E8%AE%AE%E4%B8%8E%E5%88%86%E6%9E%90_%E7%AC%94%E8%AE%B0%E6%95%B4%E7%90%86/#%E7%AC%AC%E4%B8%89%E7%AB%A0-Kerberos)
+
+[山大的试卷1](https://blog.csdn.net/m0_52559974/article/details/129046455)
+
+[山大的试卷2](https://blog.csdn.net/sduwaer/article/details/135412570?)
